@@ -1,0 +1,1 @@
+`Checking that if my files are geting sync in obsidian-sync branch`
