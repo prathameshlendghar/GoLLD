@@ -1,14 +1,16 @@
-
 import java.util.*;
 
-interface Bidder{
-    public void placeBid(int price);
-    public void receiveBidNotification(int price);
+// Bidder interface
+interface Bidder {
+    void placeBid(int price);
+    void receiveBidNotification(String bidderName, int price);
+    String getName(); // Added to help with notifications
 }
 
-class BidderColleague implements Bidder{
-    public String name;
-    public AuctionMediator mediator;
+// Concrete Bidder (Colleague)
+class BidderColleague implements Bidder {
+    private final String name;
+    private final AuctionMediator mediator;
 
     public BidderColleague(String name, AuctionMediator mediator) {
         this.name = name;
@@ -16,57 +18,74 @@ class BidderColleague implements Bidder{
     }
 
     @Override
-    public void placeBid(int price){
+    public void placeBid(int price) {
+        System.out.println("\n" + name + " is placing a bid of: " + price);
         mediator.placeBid(this, price);
     }
 
     @Override
-    public void receiveBidNotification(int price){
-        System.out.println("Bidder: " + name + " The latest Bid placed is of amount " + price);
+    public void receiveBidNotification(String bidderName, int price) {
+        System.out.println("Bidder " + name + ": New bid placed by " + bidderName + " for amount " + price);
+    }
+
+    @Override
+    public String getName() {
+        return name;
     }
 }
 
-interface AuctionMediator{
-    public void addBidder(Bidder bidder);
-    public void placeBid(Bidder bidder, int price);
+// Mediator interface
+interface AuctionMediator {
+    void addBidder(Bidder bidder);
+    void placeBid(Bidder bidder, int price);
 }
 
-class ConcreteAuctionMediator implements AuctionMediator{
-    List<Bidder> bidders;
+// Concrete Mediator
+class ConcreteAuctionMediator implements AuctionMediator {
+    private final List<Bidder> bidders = new ArrayList<>();
+    private int highestBid = 0;
+    private String highestBidder = "";
 
-    public ConcreteAuctionMediator() {
-        bidders = new ArrayList<>();
-    }
-
-    public void addBidder(Bidder bidder){
+    @Override
+    public void addBidder(Bidder bidder) {
         bidders.add(bidder);
     }
-    
-    public void placeBid(Bidder bidder, int price){
-        for(Bidder person : bidders){
-            if(person != bidder){
-                person.receiveBidNotification(price);
+
+    @Override
+    public void placeBid(Bidder bidder, int price) {
+        if (price > highestBid) {
+            highestBid = price;
+            highestBidder = bidder.getName();
+
+            for (Bidder person : bidders) {
+                if (!person.equals(bidder)) {
+                    person.receiveBidNotification(highestBidder, highestBid);
+                }
             }
+        } else {
+            System.out.println("Bid of " + price + " is too low. Current highest bid is " + highestBid + " by " + highestBidder);
         }
     }
 }
 
-public class OnlineAuctionSystem{
+// Main class
+public class OnlineAuctionSystem {
     public static void main(String[] args) {
         AuctionMediator mediator = new ConcreteAuctionMediator();
-        BidderColleague prathamesh = new BidderColleague("prathamesh", mediator);
-        BidderColleague Pratik = new BidderColleague("Pratik", mediator);
-        BidderColleague Rahul = new BidderColleague("Rahul", mediator);
-        BidderColleague Ramesh = new BidderColleague("Ramesh", mediator);
+
+        BidderColleague prathamesh = new BidderColleague("Prathamesh", mediator);
+        BidderColleague pratik = new BidderColleague("Pratik", mediator);
+        BidderColleague rahul = new BidderColleague("Rahul", mediator);
+        BidderColleague ramesh = new BidderColleague("Ramesh", mediator);
 
         mediator.addBidder(prathamesh);
-        mediator.addBidder(Pratik);
-        mediator.addBidder(Rahul);
-        mediator.addBidder(Ramesh);
+        mediator.addBidder(pratik);
+        mediator.addBidder(rahul);
+        mediator.addBidder(ramesh);
 
         prathamesh.placeBid(5000);
-
-        Rahul.placeBid(9000);
-
+        rahul.placeBid(9000);
+        pratik.placeBid(8500); // Should be rejected
+        ramesh.placeBid(12000);
     }
 }
