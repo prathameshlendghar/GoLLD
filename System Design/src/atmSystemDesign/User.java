@@ -3,6 +3,10 @@ package atmSystemDesign;
 public class User {
     private Card card;
 
+    User(Card card){
+        this.card = card;
+    }
+
     public BankAccount getBankAccount() {
         return bankAccount;
     }

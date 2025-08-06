@@ -1,5 +1,6 @@
 package atmSystemDesign.atmState;
 
+import atmSystemDesign.ATM;
 import atmSystemDesign.Card;
 import atmSystemDesign.Currency;
 import atmSystemDesign.TransactionOptions;
@@ -8,28 +9,30 @@ import java.util.Iterator;
 import java.util.Map;
 
 public abstract class ATMState {
-    void insertCashInAtm(Currency Cash, int quantity){
+    Card card;
+
+    public void insertCashInAtm(ATM atm, Currency Cash, int quantity){
         System.out.println("Ops, Something Wrong happen");
     }
-    void insertCardInAtm(Card card){
+    public void insertCardInAtm(ATM atm, Card card){
         System.out.println("Ops, Something Wrong happen");
     }
-    void insertPin(String pin){
+    public void insertPin(ATM atm, Card card, String pin){
         System.out.println("Ops, Something Wrong happen");
     }
-    void selectOption(TransactionOptions option){
+    public void selectOption(ATM atm, Card card, TransactionOptions option){
         System.out.println("Ops, Something Wrong happen");
     }
-    void withdrawCashAmount(int Amount){
+    public void withdrawCashAmount(ATM atm, Card card, int Amount){
         System.out.println("Ops, Something Wrong happen");
     }
-    void checkBalance(){
+    public void checkBalance(ATM atm, Card card){
         System.out.println("Ops, Something Wrong happen");
     }
-    void changePin(int pin){
+    public void changePin(ATM atm, Card card, String pin){
         System.out.println("Ops, Something Wrong happen");
     }
-    void exit(){
+    public void exit(ATM atm){
         System.out.println("Ops, Something Wrong happen");
     }
 }
