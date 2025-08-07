@@ -61,21 +61,18 @@ public class ATM {
         }
     }
 
+    void maintainATM(){atmState.maintenanceATM(this);}
     void insertCashInAtm(Currency cash, int quantity){
         atmState.insertCashInAtm(this, cash, quantity);
     }
     void insertCardInAtm(Card card){
         atmState.insertCardInAtm(this, card);
     }
-    void insertPin(String pin){
-        atmState.insertPin(this, card, pin);
-    }
+    void insertPin(String pin){atmState.insertPin(this, card, pin);}
     void selectOption(TransactionOptions option){
         atmState.selectOption(this, card, option);
     }
-    void withdrawCashAmount(int amount){
-        atmState.withdrawCashAmount(this, card, amount);
-    }
+    void withdrawCashAmount(int amount){atmState.withdrawCashAmount(this, card, amount);}
     void checkBalance(){
         atmState.checkBalance(this, card);
     }

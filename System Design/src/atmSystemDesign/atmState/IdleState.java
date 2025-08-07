@@ -18,4 +18,9 @@ public class IdleState extends ATMState{
         System.out.println("Card inserted Successfully");
         atm.changeATMState(new HasCardState());
     }
+
+    @Override
+    public void maintenanceATM(ATM atm){
+        atm.changeATMState(new MaintenanceState());
+    }
 }

@@ -42,5 +42,9 @@ public class ATMRoom {
         atmMachine.insertPin("2345");
         atmMachine.selectOption(TransactionOptions.DEBITMONEY);
         atmMachine.withdrawCashAmount(500);
+
+        atmMachine.maintainATM();
+        atmMachine.insertCashInAtm(Currency.TWOHUNDRED, 15);
+        System.out.println(atmMachine.getCashAvailableDetails());
     }
 }

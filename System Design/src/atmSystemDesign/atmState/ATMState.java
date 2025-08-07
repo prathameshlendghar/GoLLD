@@ -9,6 +9,9 @@ import java.util.Iterator;
 import java.util.Map;
 
 public abstract class ATMState {
+    public void maintenanceATM(ATM atm){
+        System.out.println("Ops, Something Wrong happen");
+    }
     public void insertCashInAtm(ATM atm, Currency Cash, int quantity){
         System.out.println("Ops, Something Wrong happen");
     }
