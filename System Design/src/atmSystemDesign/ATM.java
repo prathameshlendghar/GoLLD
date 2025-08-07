@@ -32,6 +32,18 @@ public class ATM {
         this.cashInAtm = cashInAtm;
     }
 
+    public Map<Currency, Integer> getCashAvailableDetails(){
+        return this.cashInAtm;
+    }
+
+    public int checkAvailableMoney(){
+        int amount = 0;
+        for(Map.Entry<Currency, Integer> money : cashInAtm.entrySet()){
+            amount += money.getKey().getValue() * money.getValue();
+        }
+        return amount;
+    }
+
     public boolean checkCashAvailable(Currency currency, int quantity){
         int cash = cashInAtm.getOrDefault(currency, 0);
         return cash >= quantity;
@@ -40,6 +52,7 @@ public class ATM {
     public boolean dispenseCash(Currency currency, int quantity){
         if(checkCashAvailable(currency, quantity)){
             int cash = cashInAtm.get(currency) - quantity;
+            if(quantity > 0) System.out.println("Dispensed "+quantity+" Notes of " + currency.getValue() + "Rs");
             cashInAtm.put(currency, cash);
             return true;
         }

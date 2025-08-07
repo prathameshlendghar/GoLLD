@@ -9,8 +9,6 @@ import java.util.Iterator;
 import java.util.Map;
 
 public abstract class ATMState {
-    Card card;
-
     public void insertCashInAtm(ATM atm, Currency Cash, int quantity){
         System.out.println("Ops, Something Wrong happen");
     }
@@ -33,6 +31,6 @@ public abstract class ATMState {
         System.out.println("Ops, Something Wrong happen");
     }
     public void exit(ATM atm){
-        System.out.println("Ops, Something Wrong happen");
+        atm.changeATMState(new IdleState());
     }
 }

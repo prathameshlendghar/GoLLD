@@ -10,28 +10,15 @@ public class Card {
     private BankAccount userBankAcc;
 
     Card(){}
-    Card(String cardNum, int cvv, String expDate, String pinNum, BankAccount userBankAcc){
+    Card(String cardNum, int cvv, String expDate, BankAccount userBankAcc){
         this.cardNum = cardNum;
         this.cvv = cvv;
         this.expDate = expDate;
-        this.pinNum = pinNum;
         this.userBankAcc = userBankAcc;
     }
 
-    public boolean deductMoney(int money, String pinNum){
-        if(!pinNum.equals(this.pinNum)){
-//            System.out.println("Invalid Pin");
-            return false;
-        }
+    public boolean deductMoney(int money){
         return userBankAcc.deductMoney(money);
-//        {
-//            System.out.println("Money " + money + " has been deducted from " + userBankAcc.getAccountHolderName() + "'s Account successfully");
-//            return true;
-//        }
-//        else{
-//            System.out.println("Insufficient Balance");
-//            return false;
-//        }
     }
 
     public void setCardValues(String cardNum, int cvv, String expDate, BankAccount userBankAcc){
@@ -47,6 +34,10 @@ public class Card {
 
     public boolean validCard(){
         return this.getCardNum().length() == 16 && this.getCvv()>=100;
+    }
+
+    public int getCardBalance(){
+        return this.userBankAcc.getAccountBalance();
     }
 
     public void setCardNum(String cardNum){
