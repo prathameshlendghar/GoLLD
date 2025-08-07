@@ -11,7 +11,7 @@ public class CashWithdrawState extends ATMState{
 
     @Override
     public void withdrawCashAmount(ATM atm, Card card, int amount){
-        CashWithdrawHandler cashWithdrawHandler = new CashWithdrawHandler(new TwoKWithdrawHandler(new FiveHundredWithdrawHandler(new TwoHundredWithdrawHandler(new FiftyWithdrawHandler(new DefaultCheckHandler(null, "default"), "50"), "2h"), "5h"), "2k"), "0");
+        CashWithdrawHandler cashWithdrawHandler = new CashWithdrawHandler(new TwoKWithdrawHandler(new FiveHundredWithdrawHandler(new TwoHundredWithdrawHandler(new FiftyWithdrawHandler(new DefaultCheckHandler(null))))));
         if(card.getCardBalance() < amount){
             System.out.println("InSufficient Balance in your Bank Account");
             exit(atm);
