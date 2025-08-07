@@ -6,8 +6,8 @@ import atmSystemDesign.Currency;
 import java.util.Map;
 
 public class TwoKWithdrawHandler extends CashWithdrawHandler{
-    public TwoKWithdrawHandler(CashWithdrawHandler nextCashWithdrawChain, String s){
-        super(nextCashWithdrawChain, s);
+    public TwoKWithdrawHandler(CashWithdrawHandler nextCashWithdrawChain){
+        super(nextCashWithdrawChain);
     }
 
     @Override

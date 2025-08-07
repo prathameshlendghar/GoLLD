@@ -3,8 +3,8 @@ package atmSystemDesign.cashWithdrawChainProcessor;
 import atmSystemDesign.ATM;
 
 public class DefaultCheckHandler extends CashWithdrawHandler{
-    public DefaultCheckHandler(CashWithdrawHandler nextCashWithdrawChain, String s){
-        super(nextCashWithdrawChain,s);
+    public DefaultCheckHandler(CashWithdrawHandler nextCashWithdrawChain){
+        super(nextCashWithdrawChain);
     }
 
     @Override

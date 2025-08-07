@@ -4,10 +4,8 @@ import atmSystemDesign.ATM;
 
 public class CashWithdrawHandler {
     CashWithdrawHandler nextCashWithdrawChain;
-    String s;
-    public CashWithdrawHandler(CashWithdrawHandler nextCashWithdrawChain, String s){
+    public CashWithdrawHandler(CashWithdrawHandler nextCashWithdrawChain){
         this.nextCashWithdrawChain = nextCashWithdrawChain;
-        this.s = s;
     }
 
     public boolean withdraw(ATM atm, Integer amount){
