@@ -1,4 +1,4 @@
-package CarRentalSystemDesign.user;
+package vehicleRentingSystemDesign.user;
 
 public class User {
     String fullName;

@@ -1,7 +1,7 @@
-package CarRentalSystemDesign.vehicle;
+package vehicleRentingSystemDesign.vehicle;
 
-import CarRentalSystemDesign.types.VehicleType;
-import CarRentalSystemDesign.user.Owner;
+import vehicleRentingSystemDesign.types.VehicleType;
+import vehicleRentingSystemDesign.user.Owner;
 
 public class Bike extends Vehicle{
 

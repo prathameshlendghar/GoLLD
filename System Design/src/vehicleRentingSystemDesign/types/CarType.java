@@ -1,4 +1,4 @@
-package CarRentalSystemDesign.types;
+package vehicleRentingSystemDesign.types;
 
 public enum CarType implements VehicleType{
     NORMALCAR("Normal Car"),

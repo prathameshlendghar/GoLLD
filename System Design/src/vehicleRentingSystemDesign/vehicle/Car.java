@@ -1,7 +1,7 @@
-package CarRentalSystemDesign.vehicle;
+package vehicleRentingSystemDesign.vehicle;
 
-import CarRentalSystemDesign.types.VehicleType;
-import CarRentalSystemDesign.user.Owner;
+import vehicleRentingSystemDesign.types.VehicleType;
+import vehicleRentingSystemDesign.user.Owner;
 
 public class Car extends Vehicle{
     public Car(String registeredNumber, VehicleType vehicleType, Owner owner, int power, int yearsOld, int monthOld, int kmRun, String brand, String model, int rating) {

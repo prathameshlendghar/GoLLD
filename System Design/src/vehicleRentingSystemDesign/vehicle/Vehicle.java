@@ -1,33 +1,35 @@
-package CarRentalSystemDesign.vehicle;
+package vehicleRentingSystemDesign.vehicle;
 
-import CarRentalSystemDesign.types.VehicleType;
-import CarRentalSystemDesign.user.Owner;
+import vehicleRentingSystemDesign.types.VehicleType;
+import vehicleRentingSystemDesign.user.Owner;
+
+import java.time.LocalDate;
 
 public class Vehicle {
     String registeredNumber;
     VehicleType vehicleType;
     Owner owner;
     int power;
-    int yearsOld;
-    int monthOld;
+    LocalDate purchaseDate;
     int kmRun;
     String brand;
     String model;
     int fuel;
     int rating;
+    float oneDayPrice;
 
 
-    public Vehicle(String registeredNumber, VehicleType vehicleType, Owner owner, int power, int yearsOld, int monthOld, int kmRun, String brand, String model, int rating) {
+    public Vehicle(String registeredNumber, VehicleType vehicleType, LocalDate purchaseDate, Owner owner, int power, int kmRun, String brand, String model, int rating, float oneDayPrice) {
         this.registeredNumber = registeredNumber;
         this.vehicleType = vehicleType;
         this.owner = owner;
         this.power = power;
-        this.yearsOld = yearsOld;
-        this.monthOld = monthOld;
+        this.purchaseDate = purchaseDate;
         this.kmRun = kmRun;
         this.brand = brand;
         this.model = model;
         this.rating = rating;
+        this.oneDayPrice = oneDayPrice;
     }
 
     public String getRegisteredNumber() {
@@ -62,20 +64,12 @@ public class Vehicle {
         this.power = power;
     }
 
-    public int getYearsOld() {
-        return yearsOld;
+    public LocalDate getPurchaseDate() {
+        return purchaseDate;
     }
 
-    public void setYearsOld(int yearsOld) {
-        this.yearsOld = yearsOld;
-    }
-
-    public int getMonthOld() {
-        return monthOld;
-    }
-
-    public void setMonthOld(int monthOld) {
-        this.monthOld = monthOld;
+    public void setPurchaseDate(LocalDate purchaseDate) {
+        this.purchaseDate = purchaseDate;
     }
 
     public int getKmRun() {
@@ -116,5 +110,13 @@ public class Vehicle {
 
     public void setRating(int rating) {
         this.rating = rating;
+    }
+
+    public float getOneDayPrice() {
+        return oneDayPrice;
+    }
+
+    public void setOneDayPrice(float oneDayPrice) {
+        this.oneDayPrice = oneDayPrice;
     }
 }

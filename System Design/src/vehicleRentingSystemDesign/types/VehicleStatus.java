@@ -1,4 +1,4 @@
-package CarRentalSystemDesign.types;
+package vehicleRentingSystemDesign.types;
 
 public enum VehicleStatus {
     BOOKED,

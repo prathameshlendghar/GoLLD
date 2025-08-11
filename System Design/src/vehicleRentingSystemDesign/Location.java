@@ -1,4 +1,4 @@
-package CarRentalSystemDesign;
+package vehicleRentingSystemDesign;
 
 public class Location {
     String city;
@@ -7,6 +7,8 @@ public class Location {
     int pinCode;
     double lat;
     double lng;
+
+    public Location(){}
 
     public Location(String city, String subDistrict, String district, int pinCode, double lat, double lng) {
         this.city = city;
