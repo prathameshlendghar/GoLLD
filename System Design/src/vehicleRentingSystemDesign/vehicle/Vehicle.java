@@ -1,9 +1,12 @@
 package vehicleRentingSystemDesign.vehicle;
 
+import vehicleRentingSystemDesign.Reservation;
 import vehicleRentingSystemDesign.types.VehicleType;
 import vehicleRentingSystemDesign.user.Owner;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Vehicle {
     String registeredNumber;
@@ -18,6 +21,7 @@ public class Vehicle {
     int rating;
     float oneDayPrice;
 
+//    List<Reservation> reservations = new ArrayList<>();
 
     public Vehicle(String registeredNumber, VehicleType vehicleType, LocalDate purchaseDate, Owner owner, int power, int kmRun, String brand, String model, int rating, float oneDayPrice) {
         this.registeredNumber = registeredNumber;

@@ -4,8 +4,9 @@ import vehicleRentingSystemDesign.vehicle.Vehicle;
 
 public class DailyPricingStrategy implements PricingStrategy{
 
+
     @Override
-    public float calculatePricingStrategy(Vehicle vehicle, int days){
+    public float calculatePricingStrategy(Vehicle vehicle, long days){
         float pricePerDay = vehicle.getOneDayPrice();
         return pricePerDay*days;
     }
