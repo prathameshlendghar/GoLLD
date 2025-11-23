@@ -14,3 +14,14 @@
 11. Each user will have their personalised Balance sheet.
 12. Balance sheet will have all records of payment to be made and payment to receive(from Whome) by that user.
 13. Balance sheet will also have a simplified calculated view of total money owed and owned.
+
+
+- ## Entity Identification
+1. User
+2. Group
+3. Expense
+4. (Enum) SplitType
+5. Split
+6. BalanceSheet
+
+# UML diagram
